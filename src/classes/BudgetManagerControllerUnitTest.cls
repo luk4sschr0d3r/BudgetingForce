@@ -360,28 +360,31 @@ private class BudgetManagerControllerUnitTest {
 		System.assertEquals('prtest3', ((PurchaseRequest)bnl4_3).name);
 				
 		// Test approvedS, requestedS, approvedTotalS, requestedTotalS for each node
-		System.assertEquals('0.00', bnl1.approvedS);
-		System.assertEquals('0.00', bnl1.requestedS);
-		System.assertEquals('0.00', bnl1.approvedTotalS);
-		System.assertEquals('0.00', bnl2.approvedS);
-		System.assertEquals('0.00', bnl2.requestedS);
-		System.assertEquals('0.00', bnl2.approvedTotalS);
-		System.assertEquals('0.00', bnl3.approvedS);
-		System.assertEquals('0.00', bnl3.approvedTotalS);
-		System.assertEquals('0.00', bnl3_2.approvedS);
-		System.assertEquals('0.00', bnl3_2.approvedTotalS);
-		System.assertEquals('0.00', bnl3_3.approvedS);
-		System.assertEquals('0.00', bnl3_3.requestedS);
-		System.assertEquals('0.00', bnl3_3.approvedTotalS);
-		System.assertEquals('0.00', bnl3_4.approvedS);
-		System.assertEquals('0.00', bnl3_4.requestedS);
-		System.assertEquals('0.00', bnl3_4.approvedTotalS);
-		System.assertEquals('0.00', bnl3_5.approvedS);
-		System.assertEquals('0.00', bnl3_5.requestedS);
-		System.assertEquals('0.00', bnl3_5.approvedTotalS);
-		System.assertEquals('0.00', bnl4_1.requestedS);
-		System.assertEquals('0.00', bnl4_2.requestedS);
-		System.assertEquals('0.00', bnl4_3.requestedS);		
+
+		BudgetUtil.determineNumberFormat();
+		String d000 = '0' + BudgetUtil.nbrDecimal + '00';  // Support L10N: 0.00 in US/UK or 0,00 in Germany et.al.
+		System.assertEquals(d000, bnl1.approvedS);
+		System.assertEquals(d000, bnl1.requestedS);
+		System.assertEquals(d000, bnl1.approvedTotalS);
+		System.assertEquals(d000, bnl2.approvedS);
+		System.assertEquals(d000, bnl2.requestedS);
+		System.assertEquals(d000, bnl2.approvedTotalS);
+		System.assertEquals(d000, bnl3.approvedS);
+		System.assertEquals(d000, bnl3.approvedTotalS);
+		System.assertEquals(d000, bnl3_2.approvedS);
+		System.assertEquals(d000, bnl3_2.approvedTotalS);
+		System.assertEquals(d000, bnl3_3.approvedS);
+		System.assertEquals(d000, bnl3_3.requestedS);
+		System.assertEquals(d000, bnl3_3.approvedTotalS);
+		System.assertEquals(d000, bnl3_4.approvedS);
+		System.assertEquals(d000, bnl3_4.requestedS);
+		System.assertEquals(d000, bnl3_4.approvedTotalS);
+		System.assertEquals(d000, bnl3_5.approvedS);
+		System.assertEquals(d000, bnl3_5.requestedS);
+		System.assertEquals(d000, bnl3_5.approvedTotalS);
+		System.assertEquals(d000, bnl4_1.requestedS);
+		System.assertEquals(d000, bnl4_2.requestedS);
+		System.assertEquals(d000, bnl4_3.requestedS);		
 		
 		// Check levels
 		System.assertEquals(1, bnl1.Level);
