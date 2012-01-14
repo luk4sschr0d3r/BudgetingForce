@@ -482,8 +482,8 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
 	    this.currentRow = 0; //The current row of the table.
 	    this.currentCol = 0; //The current column of the table.
 	    this.currentTableId = tableId; //The id of the table
-	    this.nbrDecimal = '.'; //The decimal separator char
-		this.nbrSeparator = ','; //The thousand separator char
+	    this.nbrDecimal = '{!nbrDecimal}'; //The decimal separator char
+		this.nbrSeparator = '{!nbrSeparator}'; //The thousand separator char
 		this.rows = tableId == null ? null : $J('tr',$J('tbody',$J('#'+tableId)));
 		this.cell = null;
 	    

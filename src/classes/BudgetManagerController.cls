@@ -77,6 +77,9 @@ public with sharing class BudgetManagerController {
 	public String budgetId {get;set;}
 	public String budgetLevel {get;set;}
 
+	public String nbrSeparator { get { return BudgetUtil.nbrSeparator; } set; }
+	public String nbrDecimal { get { return BudgetUtil.nbrDecimal; } set; }
+
 	public String note1{
 		get{
 			return ReclaimBudgetCS__c.getInstance() != null ? ReclaimBudgetCS__c.getInstance().ManagerNoteInUI1__c : '';
@@ -396,7 +399,6 @@ public with sharing class BudgetManagerController {
 										  Rollup_of_Purchase_Request_Amount__c,
 										  Uncommitted_Approved_Budget__c
 								   from Budget_Line__c where Program_Budget__c in : programBudgetsMap.keySet() and RecordTypeId = :programRTId order by Name]) {
-								   	
 			BudgetNode auxBL3 = programBudgetsMap.get(bl4.Program_Budget__c);
 			BudgetNode BL4Node = new BudgetLine(i++, bl4);
 			auxBL3.add(BL4Node);
@@ -415,7 +417,6 @@ public with sharing class BudgetManagerController {
 										    Budget_Line__c,
 										    Purchase_Request_Amount__c  
 									 from Purchase_Request__c where Budget_Line__c in :BLsMap.keySet() order by Name]){
-			
 			BudgetNode auxBL4 = BLsMap.get(pr.Budget_Line__c);
 			BudgetNode BExpNode = new PurchaseRequest(i++, pr);
 			auxBL4.add(BExpNode);
